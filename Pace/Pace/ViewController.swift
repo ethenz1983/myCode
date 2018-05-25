@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var locationUtils: LocationUtils?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setupUI()
+        locationUtils = LocationUtils()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +25,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func setupUI() {
+        view.backgroundColor = UIColor.black
+    }
 
 }
 

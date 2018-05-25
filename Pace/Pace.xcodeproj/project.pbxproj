@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7CA7ED8A17F876F96E1AB2D7 /* Pods_Pace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */; };
 		AA0C2DFA20B6E5A000773614 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2DF920B6E5A000773614 /* AppDelegate.swift */; };
 		AA0C2DFC20B6E5A000773614 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2DFB20B6E5A000773614 /* ViewController.swift */; };
 		AA0C2DFF20B6E5A000773614 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0C2DFD20B6E5A000773614 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		AA0C2E0420B6E5A200773614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0C2E0220B6E5A200773614 /* LaunchScreen.storyboard */; };
 		AA0C2E0F20B6E5A200773614 /* PaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2E0E20B6E5A200773614 /* PaceTests.swift */; };
 		AA0C2E1A20B6E5A200773614 /* PaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2E1920B6E5A200773614 /* PaceUITests.swift */; };
+		AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8080720B8582400C11E57 /* LocationUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C05F98548A47B234CC7DC39 /* Pods-Pace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pace/Pods-Pace.debug.xcconfig"; sourceTree = "<group>"; };
 		AA0C2DF620B6E5A000773614 /* Pace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0C2DF920B6E5A000773614 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA0C2DFB20B6E5A000773614 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		AA0C2E1520B6E5A200773614 /* PaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0C2E1920B6E5A200773614 /* PaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceUITests.swift; sourceTree = "<group>"; };
 		AA0C2E1B20B6E5A200773614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAB8080720B8582400C11E57 /* LocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
+		EB8A191FC33E08317C1E76D3 /* Pods-Pace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pace/Pods-Pace.release.xcconfig"; sourceTree = "<group>"; };
+		F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA7ED8A17F876F96E1AB2D7 /* Pods_Pace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97CD50D983B5ABBC71DCFFD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C05F98548A47B234CC7DC39 /* Pods-Pace.debug.xcconfig */,
+				EB8A191FC33E08317C1E76D3 /* Pods-Pace.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A95F193CB232D7EAC1D9171B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA0C2DED20B6E5A000773614 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 				AA0C2E0D20B6E5A200773614 /* PaceTests */,
 				AA0C2E1820B6E5A200773614 /* PaceUITests */,
 				AA0C2DF720B6E5A000773614 /* Products */,
+				97CD50D983B5ABBC71DCFFD3 /* Pods */,
+				A95F193CB232D7EAC1D9171B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +125,7 @@
 			children = (
 				AA0C2DF920B6E5A000773614 /* AppDelegate.swift */,
 				AA0C2DFB20B6E5A000773614 /* ViewController.swift */,
+				AAB8080720B8582400C11E57 /* LocationUtils.swift */,
 				AA0C2DFD20B6E5A000773614 /* Main.storyboard */,
 				AA0C2E0020B6E5A200773614 /* Assets.xcassets */,
 				AA0C2E0220B6E5A200773614 /* LaunchScreen.storyboard */,
@@ -132,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA0C2E1E20B6E5A200773614 /* Build configuration list for PBXNativeTarget "Pace" */;
 			buildPhases = (
+				3156FD6885C7BEEF2E0C5DC7 /* [CP] Check Pods Manifest.lock */,
 				AA0C2DF220B6E5A000773614 /* Sources */,
 				AA0C2DF320B6E5A000773614 /* Frameworks */,
 				AA0C2DF420B6E5A000773614 /* Resources */,
+				A3E8F457EEEA373839EA70AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +222,11 @@
 				TargetAttributes = {
 					AA0C2DF520B6E5A000773614 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					AA0C2E0920B6E5A200773614 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -251,6 +285,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3156FD6885C7BEEF2E0C5DC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pace-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3E8F457EEEA373839EA70AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pace/Pods-Pace-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pace/Pods-Pace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AA0C2DF220B6E5A000773614 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,6 +331,7 @@
 			files = (
 				AA0C2DFC20B6E5A000773614 /* ViewController.swift in Sources */,
 				AA0C2DFA20B6E5A000773614 /* AppDelegate.swift in Sources */,
+				AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,16 +502,18 @@
 		};
 		AA0C2E1F20B6E5A200773614 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C05F98548A47B234CC7DC39 /* Pods-Pace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9G7W87LCKL;
 				INFOPLIST_FILE = Pace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ethan.Pace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.momoangel.pace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,16 +522,18 @@
 		};
 		AA0C2E2020B6E5A200773614 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB8A191FC33E08317C1E76D3 /* Pods-Pace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9G7W87LCKL;
 				INFOPLIST_FILE = Pace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ethan.Pace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.momoangel.pace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
