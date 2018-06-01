@@ -46,7 +46,7 @@ extension LocationUtils: CLLocationManagerDelegate {
         guard locations.count > 0 else { return }
         let location = locations[0]
         let model = LocationModel(loc: location)
-        DataSource.shared.append(model: model)
+        LocationDataSource.shared.append(model: model)
         
         print("location did update=\(location)")
     }

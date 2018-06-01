@@ -19,7 +19,7 @@
 		AAD3372820C03EF900866608 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372720C03EF900866608 /* LocationModel.swift */; };
 		AAD3372C20C0410300866608 /* DriveScore.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372B20C0410300866608 /* DriveScore.m */; };
 		AAD3372E20C1143C00866608 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372D20C1143C00866608 /* DataUtils.swift */; };
-		AAD3373120C1281800866608 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3373020C1281800866608 /* DataSource.swift */; };
+		AAD3373120C1281800866608 /* LocationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3373020C1281800866608 /* LocationDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 		AAD3372A20C0410300866608 /* DriveScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveScore.h; sourceTree = "<group>"; };
 		AAD3372B20C0410300866608 /* DriveScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveScore.m; sourceTree = "<group>"; };
 		AAD3372D20C1143C00866608 /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
-		AAD3373020C1281800866608 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		AAD3373020C1281800866608 /* LocationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataSource.swift; sourceTree = "<group>"; };
 		EB8A191FC33E08317C1E76D3 /* Pods-Pace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pace/Pods-Pace.release.xcconfig"; sourceTree = "<group>"; };
 		F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,10 +133,8 @@
 		AA0C2DF820B6E5A000773614 /* Pace */ = {
 			isa = PBXGroup;
 			children = (
-				AAD3372F20C1203E00866608 /* Data */,
+				AAD3373220C139D200866608 /* Location */,
 				AA0C2DF920B6E5A000773614 /* AppDelegate.swift */,
-				AA0C2DFB20B6E5A000773614 /* ViewController.swift */,
-				AAB8080720B8582400C11E57 /* LocationUtils.swift */,
 				AAD3372A20C0410300866608 /* DriveScore.h */,
 				AAD3372B20C0410300866608 /* DriveScore.m */,
 				AA0C2DFD20B6E5A000773614 /* Main.storyboard */,
@@ -166,14 +164,40 @@
 			path = PaceUITests;
 			sourceTree = "<group>";
 		};
-		AAD3372F20C1203E00866608 /* Data */ = {
+		AAD3372F20C1203E00866608 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AAD3372720C03EF900866608 /* LocationModel.swift */,
+				AAD3373020C1281800866608 /* LocationDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AAD3373220C139D200866608 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AAD3372F20C1203E00866608 /* Model */,
+				AAD3373420C13A0500866608 /* ViewController */,
+				AAD3373320C139EB00866608 /* Utils */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		AAD3373320C139EB00866608 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				AAD3372D20C1143C00866608 /* DataUtils.swift */,
-				AAD3373020C1281800866608 /* DataSource.swift */,
-				AAD3372720C03EF900866608 /* LocationModel.swift */,
+				AAB8080720B8582400C11E57 /* LocationUtils.swift */,
 			);
-			path = Data;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AAD3373420C13A0500866608 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AA0C2DFB20B6E5A000773614 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD3373120C1281800866608 /* DataSource.swift in Sources */,
+				AAD3373120C1281800866608 /* LocationDataSource.swift in Sources */,
 				AAD3372C20C0410300866608 /* DriveScore.m in Sources */,
 				AAD3372E20C1143C00866608 /* DataUtils.swift in Sources */,
 				AAD3372820C03EF900866608 /* LocationModel.swift in Sources */,

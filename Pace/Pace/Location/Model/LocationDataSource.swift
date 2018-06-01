@@ -8,11 +8,11 @@
 
 import UIKit
 
-class DataSource: NSObject {
+class LocationDataSource: NSObject {
     var array: [LocationModel] = []
-    class var shared: DataSource {
+    class var shared: LocationDataSource {
         struct Static{
-            static let instance = DataSource()
+            static let instance = LocationDataSource()
         }
         return Static.instance
     }
