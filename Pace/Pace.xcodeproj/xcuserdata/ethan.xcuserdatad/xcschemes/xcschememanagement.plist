@@ -7,7 +7,25 @@
 		<key>Pace.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>AA0C2DF520B6E5A000773614</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA0C2E0920B6E5A200773614</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA0C2E1420B6E5A200773614</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

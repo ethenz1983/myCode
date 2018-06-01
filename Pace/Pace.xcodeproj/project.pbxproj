@@ -16,6 +16,10 @@
 		AA0C2E0F20B6E5A200773614 /* PaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2E0E20B6E5A200773614 /* PaceTests.swift */; };
 		AA0C2E1A20B6E5A200773614 /* PaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2E1920B6E5A200773614 /* PaceUITests.swift */; };
 		AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8080720B8582400C11E57 /* LocationUtils.swift */; };
+		AAD3372820C03EF900866608 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372720C03EF900866608 /* LocationModel.swift */; };
+		AAD3372C20C0410300866608 /* DriveScore.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372B20C0410300866608 /* DriveScore.m */; };
+		AAD3372E20C1143C00866608 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372D20C1143C00866608 /* DataUtils.swift */; };
+		AAD3373120C1281800866608 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3373020C1281800866608 /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,12 @@
 		AA0C2E1920B6E5A200773614 /* PaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceUITests.swift; sourceTree = "<group>"; };
 		AA0C2E1B20B6E5A200773614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB8080720B8582400C11E57 /* LocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
+		AAD3372720C03EF900866608 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		AAD3372920C0410100866608 /* Pace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pace-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAD3372A20C0410300866608 /* DriveScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveScore.h; sourceTree = "<group>"; };
+		AAD3372B20C0410300866608 /* DriveScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveScore.m; sourceTree = "<group>"; };
+		AAD3372D20C1143C00866608 /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
+		AAD3373020C1281800866608 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		EB8A191FC33E08317C1E76D3 /* Pods-Pace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pace/Pods-Pace.release.xcconfig"; sourceTree = "<group>"; };
 		F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,13 +133,17 @@
 		AA0C2DF820B6E5A000773614 /* Pace */ = {
 			isa = PBXGroup;
 			children = (
+				AAD3372F20C1203E00866608 /* Data */,
 				AA0C2DF920B6E5A000773614 /* AppDelegate.swift */,
 				AA0C2DFB20B6E5A000773614 /* ViewController.swift */,
 				AAB8080720B8582400C11E57 /* LocationUtils.swift */,
+				AAD3372A20C0410300866608 /* DriveScore.h */,
+				AAD3372B20C0410300866608 /* DriveScore.m */,
 				AA0C2DFD20B6E5A000773614 /* Main.storyboard */,
 				AA0C2E0020B6E5A200773614 /* Assets.xcassets */,
 				AA0C2E0220B6E5A200773614 /* LaunchScreen.storyboard */,
 				AA0C2E0520B6E5A200773614 /* Info.plist */,
+				AAD3372920C0410100866608 /* Pace-Bridging-Header.h */,
 			);
 			path = Pace;
 			sourceTree = "<group>";
@@ -150,6 +164,16 @@
 				AA0C2E1B20B6E5A200773614 /* Info.plist */,
 			);
 			path = PaceUITests;
+			sourceTree = "<group>";
+		};
+		AAD3372F20C1203E00866608 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AAD3372D20C1143C00866608 /* DataUtils.swift */,
+				AAD3373020C1281800866608 /* DataSource.swift */,
+				AAD3372720C03EF900866608 /* LocationModel.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +246,7 @@
 				TargetAttributes = {
 					AA0C2DF520B6E5A000773614 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -312,10 +337,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pace/Pods-Pace-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -329,6 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD3373120C1281800866608 /* DataSource.swift in Sources */,
+				AAD3372C20C0410300866608 /* DriveScore.m in Sources */,
+				AAD3372E20C1143C00866608 /* DataUtils.swift in Sources */,
+				AAD3372820C03EF900866608 /* LocationModel.swift in Sources */,
 				AA0C2DFC20B6E5A000773614 /* ViewController.swift in Sources */,
 				AA0C2DFA20B6E5A000773614 /* AppDelegate.swift in Sources */,
 				AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */,
@@ -442,6 +473,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pace/Pace-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -495,6 +527,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pace/Pace-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -505,6 +538,7 @@
 			baseConfigurationReference = 9C05F98548A47B234CC7DC39 /* Pods-Pace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9G7W87LCKL;
 				INFOPLIST_FILE = Pace/Info.plist;
@@ -515,6 +549,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.momoangel.pace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Pace/Pace-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -525,6 +561,7 @@
 			baseConfigurationReference = EB8A191FC33E08317C1E76D3 /* Pods-Pace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9G7W87LCKL;
 				INFOPLIST_FILE = Pace/Info.plist;
@@ -535,6 +572,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.momoangel.pace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Pace/Pace-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
