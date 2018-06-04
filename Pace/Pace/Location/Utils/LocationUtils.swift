@@ -17,7 +17,6 @@ class LocationUtils: NSObject {
         super.init()
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.distanceFilter = 10
         locationManager.requestAlwaysAuthorization()
     }
     
