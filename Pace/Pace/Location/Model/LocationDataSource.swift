@@ -23,7 +23,7 @@ class LocationDataSource: NSObject {
     }
     
     func append(model: LocationModel) {
-        array.append(model)
+        array.insert(model, at: 0)
     }
     
     func load() {
