@@ -10,12 +10,13 @@ import Foundation
 import CoreLocation
 
 class LocationModel: NSObject {
+    // @objc is added in order to avoid crashing when call method setValuesForKeys
     @objc var speed: Double = 0
     @objc var latitude: Double = 0
     @objc var longitude: Double = 0
     @objc var timestamp: Double = 0
-    var dateStr: String = ""
-    var speedPerHour: Double = 0
+    @objc var dateStr: String = ""
+    @objc var speedPerHour: Double = 0
   
     
     init(loc: CLLocation) {
