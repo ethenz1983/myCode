@@ -9,13 +9,26 @@
 import UIKit
 
 class LocationDataSource: NSObject {
-    var array: [LocationModel] = []
+    var currentLocationModel: LocationModel? {
+        didSet {
+            var notify = Notification(name: Notification.Name(rawValue: "CurrentLocationModelDidChanged"))
+            notify.userInfo = ["model" : currentLocationModel as AnyObject]
+            NotificationCenter.default.post(notify)
+        }
+    }
+    var array: [LocationModel] = [] {
+        didSet {
+            let notify = Notification(name: Notification.Name(rawValue: "LocationDataSourceDidChanged"))
+            NotificationCenter.default.post(notify)
+        }
+    }
     class var shared: LocationDataSource {
         struct Static{
             static let instance = LocationDataSource()
         }
         return Static.instance
     }
+    
     
     override init() {
         super.init()
@@ -24,6 +37,10 @@ class LocationDataSource: NSObject {
     
     func append(model: LocationModel) {
         array.insert(model, at: 0)
+    }
+    
+    func clean() {
+        array.removeAll()
     }
     
     func load() {

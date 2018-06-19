@@ -34,11 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        var i = 0
-        for model in LocationDataSource.shared.array {
-            print("\(i)=\(model.speed)\n")
-            i += 1
-        }
+        
+        // just print the speed of all data.
+//        var i = 0
+//        for model in LocationDataSource.shared.array {
+//            print("\(i)=\(model.speed)\n")
+//            i += 1
+//        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

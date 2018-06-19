@@ -35,40 +35,30 @@
  * 驾驶行为分析API
  *
  * return dictionary
- * rpm 转速分模型
  * acc 加速分模型
  * brake 刹车分模型
  * speed 车速分模型
- * coolant 冷却液分模型
  * aggregated 驾驶行为分值
  */
-+ (NSDictionary *)aggregated:(NSArray *)rpmArray acc:(NSArray *)accArray coolant:(NSArray *)coolantArray speed:(NSArray *)speedArray {
++ (NSDictionary *)aggregated:(NSArray *)speedArray accArray:(NSArray *)accArray {
     
-    DriveScoreModel *rpmModel = [DriveScore rpmScore:rpmArray];
     DriveScoreModel *accModel = [DriveScore accScore:accArray];
     DriveScoreModel *brakeModel = [DriveScore brakeScore:accArray];
     DriveScoreModel *speedModel = [DriveScore speedScore:speedArray];
-    DriveScoreModel *coolantModel = [DriveScore coolantScore:coolantArray];
     
-    double rpm = rpmModel.score;
     double acceleration = accModel.score;
     double brakeResult = brakeModel.score;
     double speedResult = speedModel.score;
-    double coolantResult = coolantModel.score;
     
-    double rpmFactor = [DriveScore rpmFactor];
     double accFactor = [DriveScore accFactor];
     double brakeFactor = [DriveScore brakeFactor];
     double speedFactor = [DriveScore speedFactor];
-    double coolantFactor = [DriveScore coolantFactor];
     
-    double aggregated = rpm * rpmFactor + acceleration * accFactor + brakeResult * brakeFactor + speedResult * speedFactor + coolantResult * coolantFactor;
+    double aggregated = acceleration * accFactor + brakeResult * brakeFactor + speedResult * speedFactor;
     
-    return @{@"rpm" : rpmModel,
-             @"acc" : accModel,
+    return @{@"acc" : accModel,
              @"brake" : brakeModel,
              @"speed" : speedModel,
-             @"coolant" : coolantModel,
              @"aggregated" : @(aggregated)};
 }
 
@@ -121,12 +111,12 @@
 
 /**
  * 是否为 正常加速
- * acceleration >= 0 && acceleration <= 1
+ * acceleration >= 0 && acceleration <= 2
  */
 + (BOOL)isAccPositive:(double)acceleration {
     
     if (kAccelerationErrorCode == acceleration) return NO;
-    if (acceleration >= 0 && acceleration <= 1) {
+    if (acceleration >= 0 && acceleration <= 1.5) {
         return YES;
     }
     return NO;
@@ -134,7 +124,7 @@
 
 /**
  * 是否为 不正常加速
- * acceleration > 1
+ * acceleration > 2
  */
 + (BOOL)isAccNegative:(double)acceleration {
     
@@ -147,12 +137,12 @@
 
 /**
  * 是否为 正常刹车
- * acceleration >= -1.0 && acceleration <=0.0
+ * acceleration >= -2.0 && acceleration <=0.0
  */
 + (BOOL)isBrakePositive:(double)acceleration {
     
     if (kAccelerationErrorCode == acceleration) return NO;
-    if (acceleration >= -1.0 && acceleration <= 0.0) {
+    if (acceleration >= -1.5 && acceleration <= 0.0) {
         return YES;
     }
     return NO;
@@ -160,60 +150,12 @@
 
 /**
  * 是否为 不正常刹车
- * acceleration < -1.0
+ * acceleration < -2.0
  */
 + (BOOL)isBrakeNegative:(double)acceleration {
     
     if (kAccelerationErrorCode == acceleration) return NO;
-    if (acceleration < -1.0) {
-        return YES;
-    }
-    return NO;
-}
-
-/**
- * 是否为 正常转速
- * rpm <= 2250 && rpm >= 0
- */
-+ (BOOL)isRpmPositive:(double)rpm {
-    
-    if (rpm <= 2250 && rpm >= 0) {
-        return YES;
-    }
-    return NO;
-}
-
-/**
- * 是否为 不正常转速
- * rpm > 2250
- */
-+ (BOOL)isRpmNegative:(double)rpm {
-    
-    if (rpm > 2250) {
-        return YES;
-    }
-    return NO;
-}
-
-/**
- * 是否为 正常温度（冷却液）
- * coolant <= 200 && coolant >= 80
- */
-+ (BOOL)isCoolantPositive:(double)coolant {
-    
-    if (coolant <= 200 && coolant >= 80) {
-        return YES;
-    }
-    return NO;
-}
-
-/**
- * 是否为 不正常温度（冷却液）
- * coolant < 80 && coolant >= -200
- */
-+ (BOOL)isCoolantNegative:(double)coolant {
-    
-    if (coolant < 80 && coolant >= -200) {
+    if (acceleration < -1.5) {
         return YES;
     }
     return NO;
@@ -246,27 +188,6 @@
 #pragma mark - 驾驶行为分数计算
 
 /**
- * 转速得分
- */
-+ (DriveScoreModel *)rpmScore:(NSArray *)rpmArray {
-    
-    double rpmPositive = 0;
-    double rpmNegative = 0;
-    for (int i=0; i<rpmArray.count; i++) {
-        double rpm = [rpmArray[i] doubleValue];
-        rpmPositive += [DriveScore isRpmPositive:rpm];
-        rpmNegative += [DriveScore isRpmNegative:rpm];
-    }
-    double rpmCount = rpmPositive + rpmNegative;
-    double rpmScore = rpmPositive / rpmCount * 100;
-    
-    return [[DriveScoreModel alloc] initWithPositive:rpmPositive
-                                       negative:rpmNegative
-                                          count:rpmCount
-                                          score:rpmScore];
-}
-
-/**
  * 加速得分
  */
 + (DriveScoreModel *)accScore:(NSArray *)accArray {
@@ -279,7 +200,7 @@
         accNegative += [DriveScore isAccNegative:acc];
     }
     double accCount = accPositive + accNegative;
-    double accScore = accPositive / accCount * 100;
+    double accScore = accCount ? accPositive / accCount * 100 : 0;
     
     return [[DriveScoreModel alloc] initWithPositive:accPositive
                                        negative:accNegative
@@ -300,33 +221,12 @@
         brakeNegative += [DriveScore isBrakeNegative:acc];
     }
     double brakeCount = brakePositive + brakeNegative;
-    double brakeScore = brakePositive / brakeCount * 100;
+    double brakeScore = brakeCount ? brakePositive / brakeCount * 100 : 0;
     
     return [[DriveScoreModel alloc] initWithPositive:brakePositive
                                        negative:brakeNegative
                                           count:brakeCount
                                           score:brakeScore];
-}
-
-/**
- * 冷却液得分
- */
-+ (DriveScoreModel *)coolantScore:(NSArray *)coolantArray {
-    
-    double coolantPositive = 0;
-    double coolantNegative = 0;
-    for (int i=0; i<coolantArray.count; i++) {
-        double coolant = [coolantArray[i] doubleValue];
-        coolantPositive += [DriveScore isCoolantPositive:coolant];
-        coolantNegative += [DriveScore isCoolantNegative:coolant];
-    }
-    double coolantCount = coolantPositive + coolantNegative;
-    double coolantScore = coolantPositive / coolantCount * 100;
-    
-    return [[DriveScoreModel alloc] initWithPositive:coolantPositive
-                                       negative:coolantNegative
-                                          count:coolantCount
-                                          score:coolantScore];
 }
 
 /**
@@ -342,7 +242,7 @@
         speedNegative += [DriveScore isSpeedNegative:speed];
     }
     double speedCount = speedPositive + speedNegative;
-    double speedScore = speedPositive / speedCount * 100;
+    double speedScore = speedCount ? speedPositive / speedCount * 100 : 0;
     
     return [[DriveScoreModel alloc] initWithPositive:speedPositive
                                        negative:speedNegative
@@ -353,24 +253,17 @@
 #pragma mark - 驾驶行为权重
 
 /**
- * 转速分 权重
- */
-+ (double)rpmFactor {
-    return 0.3;
-}
-
-/**
  * 加速分 权重
  */
 + (double)accFactor {
-    return 0.2;
+    return 0.4;
 }
 
 /**
  * 刹车分 权重
  */
 + (double)brakeFactor {
-    return 0.2;
+    return 0.4;
 }
 
 /**
@@ -378,13 +271,6 @@
  */
 + (double)speedFactor {
     return 0.2;
-}
-
-/**
- * 冷却液分 权重
- */
-+ (double)coolantFactor {
-    return 0.1;
 }
 
 @end

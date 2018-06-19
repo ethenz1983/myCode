@@ -39,17 +39,12 @@
  * 驾驶行为分析API
  *
  * return dictionary
- * rpm 转速分模型
  * acc 加速分模型
  * brake 刹车分模型
  * speed 车速分模型
- * coolant 冷却液分模型
  * aggregated 驾驶行为分值
  */
-+ (NSDictionary *)aggregated:(NSArray *)rpmArray
-                         acc:(NSArray *)accArray
-                     coolant:(NSArray *)coolantArray
-                       speed:(NSArray *)speedArray;
++ (NSDictionary *)aggregated:(NSArray *)speedArray accArray:(NSArray *)accArray;
 
 /**
  * 数据转换API
