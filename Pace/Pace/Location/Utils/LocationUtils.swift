@@ -13,6 +13,7 @@ class LocationUtils: NSObject {
     var locationManager: CLLocationManager!
     var isTrip = false
     var confirmEndTrip = 0
+    var isPrepareToEndingTrip = false
     
     
     override init() {
@@ -33,6 +34,26 @@ class LocationUtils: NSObject {
     open func stopGetLocation() {
         locationManager.stopUpdatingLocation()
         print("stopGetLocation")
+    }
+    
+    @objc open func prepareToEndingTrip() {
+        let endingTripDelay = 120.0
+        
+        if false == isPrepareToEndingTrip {
+            isPrepareToEndingTrip = true
+            self.perform(#selector(endingTrip), with: nil, afterDelay: endingTripDelay)
+        }
+    }
+    
+    @objc open func cancelEndingTrip() {
+        if true == isPrepareToEndingTrip {
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(prepareToEndingTrip), object: nil)
+        }
+    }
+    
+    @objc open func endingTrip() {
+        // save data base
+        isPrepareToEndingTrip = false
     }
 }
 
@@ -65,6 +86,9 @@ extension LocationUtils: CLLocationManagerDelegate {
                 isTrip = true
                 let model = LocationModel(loc: location)
                 LocationDataSource.shared.append(model: model)
+                
+                // Cancel the logic of ending the trip
+                cancelEndingTrip()
             }else {
                 // The trip not open become the speed is not fast enough
             }
@@ -81,6 +105,9 @@ extension LocationUtils: CLLocationManagerDelegate {
                     // Once confirmed for 3 times, close the trip
                     isTrip = false
                     confirmEndTrip = 0
+                    
+                    // Start the logic of ending the trip
+                    prepareToEndingTrip()
                 }
             }
         }

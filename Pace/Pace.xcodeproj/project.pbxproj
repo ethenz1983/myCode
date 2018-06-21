@@ -134,9 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				AAD3373220C139D200866608 /* Location */,
+				AA6AA87D20DB7BE0004F4A6E /* Score */,
 				AA0C2DF920B6E5A000773614 /* AppDelegate.swift */,
-				AAD3372A20C0410300866608 /* DriveScore.h */,
-				AAD3372B20C0410300866608 /* DriveScore.m */,
 				AA0C2DFD20B6E5A000773614 /* Main.storyboard */,
 				AA0C2E0020B6E5A200773614 /* Assets.xcassets */,
 				AA0C2E0220B6E5A200773614 /* LaunchScreen.storyboard */,
@@ -162,6 +161,15 @@
 				AA0C2E1B20B6E5A200773614 /* Info.plist */,
 			);
 			path = PaceUITests;
+			sourceTree = "<group>";
+		};
+		AA6AA87D20DB7BE0004F4A6E /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				AAD3372A20C0410300866608 /* DriveScore.h */,
+				AAD3372B20C0410300866608 /* DriveScore.m */,
+			);
+			path = Score;
 			sourceTree = "<group>";
 		};
 		AAD3372F20C1203E00866608 /* Model */ = {

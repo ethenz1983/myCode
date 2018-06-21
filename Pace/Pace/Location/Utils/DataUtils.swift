@@ -32,4 +32,16 @@ class DataUtils: NSObject {
         }
         return []
     }
+    
+    func insertHistory(name: String, array: [[String : AnyObject]]) {
+        cache?.setObject(array as NSCoding, forKey: name)
+    }
+    
+    func loadHistory(name: String) {
+        cache?.object(forKey: name)
+    }
+    
 }
+
+
+

@@ -220,15 +220,9 @@
                     }
                     
                     if (shouldBlockFailedURL) {
-<<<<<<< HEAD
-                        @synchronized (self.failedURLs) {
-                            [self.failedURLs addObject:url];
-                        }
-=======
                         LOCK(self.failedURLsLock);
                         [self.failedURLs addObject:url];
                         UNLOCK(self.failedURLsLock);
->>>>>>> master
                     }
                 }
                 else {
