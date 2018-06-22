@@ -116,7 +116,7 @@
 + (BOOL)isAccPositive:(double)acceleration {
     
     if (kAccelerationErrorCode == acceleration) return NO;
-    if (acceleration >= 0 && acceleration <= 1.5) {
+    if (acceleration >= 0 && acceleration <= 1.0) {
         return YES;
     }
     return NO;
@@ -142,7 +142,7 @@
 + (BOOL)isBrakePositive:(double)acceleration {
     
     if (kAccelerationErrorCode == acceleration) return NO;
-    if (acceleration >= -1.5 && acceleration <= 0.0) {
+    if (acceleration >= -1.0 && acceleration <= 0.0) {
         return YES;
     }
     return NO;
@@ -155,7 +155,7 @@
 + (BOOL)isBrakeNegative:(double)acceleration {
     
     if (kAccelerationErrorCode == acceleration) return NO;
-    if (acceleration < -1.5) {
+    if (acceleration < -1.0) {
         return YES;
     }
     return NO;
