@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AMapFoundationKit
+import MAMapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         _ = LocationDataSource.shared
+        
+        AMapServices.shared().enableHTTPS = true
+        AMapServices.shared().apiKey = AMapKey
+        
+        let viewController = ViewController()
+        viewController.title = "MainPage"
+        let viewControllerB = BViewController()
+        viewControllerB.title = "HistoryPage"
+        let tabContrller = UITabBarController()
+        tabContrller.viewControllers = [viewController, viewControllerB]
+        window?.rootViewController = tabContrller
+        
         return true
     }
 

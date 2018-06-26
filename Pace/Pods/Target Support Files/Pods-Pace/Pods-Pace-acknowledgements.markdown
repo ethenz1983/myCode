@@ -1,6 +1,16 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## AMap3DMap
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
+## AMapFoundation
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
 ## SDWebImage
 
 Copyright (c) 2009-2017 Olivier Poitrey rs@dailymotion.com

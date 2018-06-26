@@ -5,4 +5,5 @@ use_frameworks!
 target "Pace" do
     pod 'SDWebImage'
     pod 'YYCache'
+    pod 'AMap3DMap'
 end

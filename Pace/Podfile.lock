@@ -1,22 +1,30 @@
 PODS:
+  - AMap3DMap (6.3.0):
+    - AMapFoundation (~> 1.5)
+  - AMapFoundation (1.5.3)
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
   - YYCache (1.0.4)
 
 DEPENDENCIES:
+  - AMap3DMap
   - SDWebImage
   - YYCache
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AMap3DMap
+    - AMapFoundation
     - SDWebImage
     - YYCache
 
 SPEC CHECKSUMS:
+  AMap3DMap: 1bb48f98ecb46682f145881692e7b06adcd06a93
+  AMapFoundation: 58f883c80754c659cf626deb3150936bfe8f1772
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: ba829390b563f0448e031662790ad0bf6731d3dc
+PODFILE CHECKSUM: 6c6c7a7de284d414c79e7dafcd3df11724a07b13
 
 COCOAPODS: 1.5.3
