@@ -22,6 +22,8 @@
 		AA92D88420DE8D9A00606797 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92D88320DE8D9A00606797 /* BViewController.swift */; };
 		AA92D88620DE8F1C00606797 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92D88520DE8F1C00606797 /* Macro.swift */; };
 		AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8080720B8582400C11E57 /* LocationUtils.swift */; };
+		AACB95DF20E21C7500290694 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACB95DE20E21C7500290694 /* TripModel.swift */; };
+		AACB95E120E21C8A00290694 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACB95E020E21C8A00290694 /* ScoreModel.swift */; };
 		AAD3372820C03EF900866608 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372720C03EF900866608 /* LocationModel.swift */; };
 		AAD3372C20C0410300866608 /* DriveScore.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372B20C0410300866608 /* DriveScore.m */; };
 		AAD3372E20C1143C00866608 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372D20C1143C00866608 /* DataUtils.swift */; };
@@ -67,6 +69,8 @@
 		AA92D88320DE8D9A00606797 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
 		AA92D88520DE8F1C00606797 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		AAB8080720B8582400C11E57 /* LocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
+		AACB95DE20E21C7500290694 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		AACB95E020E21C8A00290694 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 		AAD3372720C03EF900866608 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		AAD3372920C0410100866608 /* Pace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pace-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAD3372A20C0410300866608 /* DriveScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveScore.h; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				AAD3372720C03EF900866608 /* LocationModel.swift */,
+				AACB95DE20E21C7500290694 /* TripModel.swift */,
+				AACB95E020E21C8A00290694 /* ScoreModel.swift */,
 				AAD3373020C1281800866608 /* LocationDataSource.swift */,
 			);
 			path = Model;
@@ -434,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACB95DF20E21C7500290694 /* TripModel.swift in Sources */,
 				AAD3373120C1281800866608 /* LocationDataSource.swift in Sources */,
 				AA92D88420DE8D9A00606797 /* BViewController.swift in Sources */,
 				AAD3372C20C0410300866608 /* DriveScore.m in Sources */,
@@ -443,6 +450,7 @@
 				AA01346120E1D8C800DE86BB /* HistoryTableViewCell.swift in Sources */,
 				AA0C2DFA20B6E5A000773614 /* AppDelegate.swift in Sources */,
 				AA01345B20E0EAF000DE86BB /* DetailViewController.swift in Sources */,
+				AACB95E120E21C8A00290694 /* ScoreModel.swift in Sources */,
 				AA92D88620DE8F1C00606797 /* Macro.swift in Sources */,
 				AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */,
 				AA01345D20E1A1CB00DE86BB /* Configuration.swift in Sources */,

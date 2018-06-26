@@ -75,7 +75,8 @@ class DataUtils: NSObject {
         if nil == URLs {
             URLs = [String]()
         }
-        URLs?.append(url)
+        // Reverse
+        URLs?.insert(url, at: 0)
         UserDefaults.standard.set(URLs, forKey: kPlistNameHistory)
         UserDefaults.standard.synchronize()
     }
