@@ -55,9 +55,6 @@ class ViewController: UIViewController {
     func setupUI() {
         view.backgroundColor = UIColor.black
         
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
-        
         button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: screenWidth - 100, height: 40)
         button.setTitle("not authorization for background location !", for: .normal)

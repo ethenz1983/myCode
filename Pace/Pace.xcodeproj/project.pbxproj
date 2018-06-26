@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7CA7ED8A17F876F96E1AB2D7 /* Pods_Pace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */; };
+		AA01345B20E0EAF000DE86BB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01345A20E0EAF000DE86BB /* DetailViewController.swift */; };
+		AA01345D20E1A1CB00DE86BB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01345C20E1A1CB00DE86BB /* Configuration.swift */; };
+		AA01346120E1D8C800DE86BB /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01345F20E1D8C800DE86BB /* HistoryTableViewCell.swift */; };
+		AA01346220E1D8C800DE86BB /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA01346020E1D8C800DE86BB /* HistoryTableViewCell.xib */; };
 		AA0C2DFA20B6E5A000773614 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2DF920B6E5A000773614 /* AppDelegate.swift */; };
 		AA0C2DFC20B6E5A000773614 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2DFB20B6E5A000773614 /* ViewController.swift */; };
 		AA0C2DFF20B6E5A000773614 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0C2DFD20B6E5A000773614 /* Main.storyboard */; };
@@ -15,6 +19,8 @@
 		AA0C2E0420B6E5A200773614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0C2E0220B6E5A200773614 /* LaunchScreen.storyboard */; };
 		AA0C2E0F20B6E5A200773614 /* PaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2E0E20B6E5A200773614 /* PaceTests.swift */; };
 		AA0C2E1A20B6E5A200773614 /* PaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C2E1920B6E5A200773614 /* PaceUITests.swift */; };
+		AA92D88420DE8D9A00606797 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92D88320DE8D9A00606797 /* BViewController.swift */; };
+		AA92D88620DE8F1C00606797 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92D88520DE8F1C00606797 /* Macro.swift */; };
 		AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8080720B8582400C11E57 /* LocationUtils.swift */; };
 		AAD3372820C03EF900866608 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372720C03EF900866608 /* LocationModel.swift */; };
 		AAD3372C20C0410300866608 /* DriveScore.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD3372B20C0410300866608 /* DriveScore.m */; };
@@ -41,6 +47,10 @@
 
 /* Begin PBXFileReference section */
 		9C05F98548A47B234CC7DC39 /* Pods-Pace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pace/Pods-Pace.debug.xcconfig"; sourceTree = "<group>"; };
+		AA01345A20E0EAF000DE86BB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AA01345C20E1A1CB00DE86BB /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		AA01345F20E1D8C800DE86BB /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		AA01346020E1D8C800DE86BB /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		AA0C2DF620B6E5A000773614 /* Pace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0C2DF920B6E5A000773614 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA0C2DFB20B6E5A000773614 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +64,8 @@
 		AA0C2E1520B6E5A200773614 /* PaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0C2E1920B6E5A200773614 /* PaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceUITests.swift; sourceTree = "<group>"; };
 		AA0C2E1B20B6E5A200773614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA92D88320DE8D9A00606797 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
+		AA92D88520DE8F1C00606797 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		AAB8080720B8582400C11E57 /* LocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
 		AAD3372720C03EF900866608 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		AAD3372920C0410100866608 /* Pace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pace-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -106,6 +118,15 @@
 				F26F1DA65099A20C34013ED2 /* Pods_Pace.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA01345E20E1D8AF00DE86BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA01345F20E1D8C800DE86BB /* HistoryTableViewCell.swift */,
+				AA01346020E1D8C800DE86BB /* HistoryTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AA0C2DED20B6E5A000773614 = {
@@ -184,6 +205,7 @@
 		AAD3373220C139D200866608 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				AA01345E20E1D8AF00DE86BB /* View */,
 				AAD3372F20C1203E00866608 /* Model */,
 				AAD3373420C13A0500866608 /* ViewController */,
 				AAD3373320C139EB00866608 /* Utils */,
@@ -196,6 +218,8 @@
 			children = (
 				AAD3372D20C1143C00866608 /* DataUtils.swift */,
 				AAB8080720B8582400C11E57 /* LocationUtils.swift */,
+				AA92D88520DE8F1C00606797 /* Macro.swift */,
+				AA01345C20E1A1CB00DE86BB /* Configuration.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -204,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				AA0C2DFB20B6E5A000773614 /* ViewController.swift */,
+				AA92D88320DE8D9A00606797 /* BViewController.swift */,
+				AA01345A20E0EAF000DE86BB /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -220,6 +246,7 @@
 				AA0C2DF320B6E5A000773614 /* Frameworks */,
 				AA0C2DF420B6E5A000773614 /* Resources */,
 				A3E8F457EEEA373839EA70AF /* [CP] Embed Pods Frameworks */,
+				5A95F7D9DF8862D88AAE13A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,6 +349,7 @@
 			files = (
 				AA0C2E0420B6E5A200773614 /* LaunchScreen.storyboard in Resources */,
 				AA0C2E0120B6E5A200773614 /* Assets.xcassets in Resources */,
+				AA01346220E1D8C800DE86BB /* HistoryTableViewCell.xib in Resources */,
 				AA0C2DFF20B6E5A000773614 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +389,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5A95F7D9DF8862D88AAE13A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pace/Pods-Pace-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pace/Pods-Pace-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A3E8F457EEEA373839EA70AF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,12 +435,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAD3373120C1281800866608 /* LocationDataSource.swift in Sources */,
+				AA92D88420DE8D9A00606797 /* BViewController.swift in Sources */,
 				AAD3372C20C0410300866608 /* DriveScore.m in Sources */,
 				AAD3372E20C1143C00866608 /* DataUtils.swift in Sources */,
 				AAD3372820C03EF900866608 /* LocationModel.swift in Sources */,
 				AA0C2DFC20B6E5A000773614 /* ViewController.swift in Sources */,
+				AA01346120E1D8C800DE86BB /* HistoryTableViewCell.swift in Sources */,
 				AA0C2DFA20B6E5A000773614 /* AppDelegate.swift in Sources */,
+				AA01345B20E0EAF000DE86BB /* DetailViewController.swift in Sources */,
+				AA92D88620DE8F1C00606797 /* Macro.swift in Sources */,
 				AAB8080820B8582400C11E57 /* LocationUtils.swift in Sources */,
+				AA01345D20E1A1CB00DE86BB /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

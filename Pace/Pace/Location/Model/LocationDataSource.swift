@@ -22,6 +22,8 @@ class LocationDataSource: NSObject {
             NotificationCenter.default.post(notify)
         }
     }
+    var history: [[LocationModel]] = []
+    
     class var shared: LocationDataSource {
         struct Static{
             static let instance = LocationDataSource()
@@ -35,6 +37,7 @@ class LocationDataSource: NSObject {
         load()
     }
     
+    // Current data
     func append(model: LocationModel) {
         array.insert(model, at: 0)
     }
@@ -74,4 +77,39 @@ class LocationDataSource: NSObject {
         }
         return infoArray
     }
+    
+    // The history data
+    func insert(array: [LocationModel]) {
+        let utils = DataUtils.shared
+        let infoArray = toInfoArray(modelArray: array)
+        utils.insertHistory(array: infoArray)
+    }
+    
+    func loadAll() {
+        let utils = DataUtils.shared
+        let bigArray = utils.loadAllHistory()
+        var a = [[LocationModel]]()
+        for infoArray in bigArray {
+            let modelArray = toModelArray(infoArray: infoArray)
+            a.append(modelArray)
+        }
+        history = a
+        
+        // there are only test code
+//        cleanDirtyData()
+    }
+    
+    func cleanDirtyData() {
+        var i = 0
+        for array in history {
+            if array.count < 20 {
+                history.remove(at: i)
+                cleanDirtyData()
+                return
+            }
+            i += 1
+        }
+    }
 }
+
+

@@ -8,10 +8,13 @@
 
 import UIKit
 
-let kCacheName_Location = "LOCATIONCACHE"
+let kDBName = "PACE"
+let kDBNameCurrent = "CURRENTLOCATION"
+let kDBNameHistory = "HISTORYLOCATION"
+let kPlistNameHistory = "HISTORYLOCATION"
 
 class DataUtils: NSObject {
-    let cache = YYCache(name: kCacheName_Location)
+    let cache = YYCache(name: kDBName)
     
     class var shared: DataUtils {
         struct Static{
@@ -20,25 +23,61 @@ class DataUtils: NSObject {
         return Static.instance
     }
     
-    
+    // Current data
     func save(array: [[String : AnyObject]]) {
-        cache?.setObject(array as NSCoding, forKey: kCacheName_Location)
+        cache?.setObject(array as NSCoding, forKey: kDBNameCurrent)
     }
     
     func load() -> [[String : AnyObject]] {
-        guard true == cache?.containsObject(forKey: kCacheName_Location) else { return [] }
-        if let array = cache?.object(forKey: kCacheName_Location) as? [[String : AnyObject]] {
+        guard true == cache?.containsObject(forKey: kDBNameCurrent) else { return [] }
+        if let array = cache?.object(forKey: kDBNameCurrent) as? [[String : AnyObject]] {
             return array
         }
         return []
     }
     
-    func insertHistory(name: String, array: [[String : AnyObject]]) {
-        cache?.setObject(array as NSCoding, forKey: name)
+    // The history data
+    func insertHistory(array: [[String : AnyObject]]) {
+        let name = "\(kDBNameHistory)\(Date().timeIntervalSince1970)"
+        cache?.setObject(array as NSCoding, forKey: name, with: {
+            self.appendURL(url: name)
+        })
     }
     
-    func loadHistory(name: String) {
-        cache?.object(forKey: name)
+    func loadHistory(name: String) -> [[String : AnyObject]] {
+        guard true == cache?.containsObject(forKey: name) else { return [] }
+        if let array = cache?.object(forKey: name) as? [[String : AnyObject]] {
+            return array
+        }
+        return []
+    }
+    
+    func loadAllHistory() -> [[[String : AnyObject]]] {
+        guard let URLs = UserDefaults.standard.array(forKey: kPlistNameHistory) as? [String] else { return [] }
+        var array2 = [[[String : AnyObject]]]()
+        for url in URLs {
+            let array = loadHistory(name: url)
+            array2.append(array)
+        }
+        return array2
+    }
+    
+    // UserDefaults operation
+    func plist() -> [String] {
+        guard let URLs = UserDefaults.standard.array(forKey: kPlistNameHistory) else {
+            return []
+        }
+        return URLs as! [String]
+    }
+    
+    func appendURL(url: String) {
+        var URLs = UserDefaults.standard.array(forKey: kPlistNameHistory)
+        if nil == URLs {
+            URLs = [String]()
+        }
+        URLs?.append(url)
+        UserDefaults.standard.set(URLs, forKey: kPlistNameHistory)
+        UserDefaults.standard.synchronize()
     }
     
 }

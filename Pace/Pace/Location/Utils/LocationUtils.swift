@@ -8,20 +8,21 @@
 
 import UIKit
 import CoreLocation
+import AMapFoundationKit
 
 class LocationUtils: NSObject {
     var locationManager: CLLocationManager!
     var isTrip = false
     var confirmEndTrip = 0
     var isPrepareToEndingTrip = false
+    var endingTripTimer: Timer?
     
     
     override init() {
         super.init()
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.activityType = .fitness// .automotiveNavigation
-//        locationManager.distanceFilter = 10
+        locationManager.activityType = .automotiveNavigation
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.requestAlwaysAuthorization()
     }
@@ -37,23 +38,29 @@ class LocationUtils: NSObject {
     }
     
     @objc open func prepareToEndingTrip() {
-        let endingTripDelay = 120.0
-        
         if false == isPrepareToEndingTrip {
             isPrepareToEndingTrip = true
-            self.perform(#selector(endingTrip), with: nil, afterDelay: endingTripDelay)
+            endingTripTimer = Timer(timeInterval: endingTripDelay, target: self, selector: #selector(endingTrip), userInfo: nil, repeats: false)
+            RunLoop.current.add(endingTripTimer!, forMode: RunLoopMode.commonModes)
+            print("delay 120s")
         }
     }
     
     @objc open func cancelEndingTrip() {
         if true == isPrepareToEndingTrip {
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(prepareToEndingTrip), object: nil)
+            endingTripTimer?.invalidate()
+            isPrepareToEndingTrip = false
+            print("cancel ending the trip")
         }
     }
     
     @objc open func endingTrip() {
         // save data base
+        let currentData = LocationDataSource.shared.array
+        LocationDataSource.shared.insert(array: currentData)
+        LocationDataSource.shared.clean()
         isPrepareToEndingTrip = false
+        print("ending the trip")
     }
 }
 
@@ -74,30 +81,42 @@ extension LocationUtils: CLLocationManagerDelegate {
         print("location did update=\(location)")
     }
     
+    func aMapLocationFromGPS(location: CLLocation) -> CLLocation {
+        // GPS coor -> AMap coor
+        let amapcoor = AMapCoordinateConvert(location.coordinate, .GPS)
+        return CLLocation(coordinate: amapcoor,
+                                      altitude: location.altitude,
+                                      horizontalAccuracy: location.horizontalAccuracy,
+                                      verticalAccuracy: location.verticalAccuracy,
+                                      course: location.course,
+                                      speed: location.speed,
+                                      timestamp: location.timestamp)
+    }
+    
     func updateALocation(location: CLLocation) {
-        LocationDataSource.shared.currentLocationModel = LocationModel(loc: location)
-        let speedCanOpenTrip = 10.0
-        let speedCanCloseTrip = 3.0
-        let confirmationCount = 3
-        
+        let amapLocation = aMapLocationFromGPS(location: location)
+        LocationDataSource.shared.currentLocationModel = LocationModel(loc: amapLocation)
         if false == isTrip {
             if location.speed * 3.6 - speedCanOpenTrip >= 0.01 {
-                // The trip is open now
+                print("The trip is open now")
                 isTrip = true
-                let model = LocationModel(loc: location)
+                let model = LocationModel(loc: amapLocation)
                 LocationDataSource.shared.append(model: model)
                 
                 // Cancel the logic of ending the trip
                 cancelEndingTrip()
             }else {
-                // The trip not open become the speed is not fast enough
+                print("The trip not open become the speed is not fast enough")
             }
         }else {
             if location.speed * 3.6 - speedCanCloseTrip >= 0.01 {
                 // Continue current trip
                 confirmEndTrip = 0
-                let model = LocationModel(loc: location)
+                let model = LocationModel(loc: amapLocation)
                 LocationDataSource.shared.append(model: model)
+                
+                // Cancel the logic of ending the trip
+                cancelEndingTrip()
             }else {
                 // Reconfirm
                 confirmEndTrip += 1
